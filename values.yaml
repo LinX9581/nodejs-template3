@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: asia.gcr.io/nownews-analytics/nodejs-template
   pullPolicy: IfNotPresent
-  tag: "3.9"
+  tag: "4.0"
 
 imagePullSecrets: []
 nameOverride: ""
