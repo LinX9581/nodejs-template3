@@ -57,7 +57,7 @@ spec:
       volumes:
       - name: nodejs-template3-volume
         persistentVolumeClaim:
-        claimName: {{ .Values.persistence.existingClaim }}
+          claimName: {{ .Values.persistence.existingClaim }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
