@@ -53,11 +53,10 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-      {{- with .Values.nodeSelector }}
       volumes:
-      - name: nodejs-template3-volume
-        persistentVolumeClaim:
-          claimName: {{ .Values.persistence.existingClaim }}
+        - name: nodejs-template3-volume
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.existingClaim }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
