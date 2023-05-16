@@ -34,7 +34,7 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           volumeMounts:
             - name: nodejs-tempalte3-volume
-            mountPath: /data
+              mountPath: /data
           envFrom:
           - configMapRef:
               name: nodejs-template-env
