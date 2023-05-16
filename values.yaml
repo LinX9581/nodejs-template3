@@ -9,6 +9,10 @@ image:
   pullPolicy: IfNotPresent
   tag: "4.1"
 
+persistence:
+  enabled: true
+  existingClaim: pod-pvc
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""

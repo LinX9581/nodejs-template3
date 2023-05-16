@@ -32,6 +32,9 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          volumeMounts:
+            - name: nodejs-tempalte3-volume
+            mountPath: /data
           envFrom:
           - configMapRef:
               name: nodejs-template-env
@@ -51,6 +54,10 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
+      volumes:
+      - name: nodejs-tempalte3-volume
+        persistentVolumeClaim:
+        claimName: {{ .Values.persistence.existingClaim }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
